@@ -8,8 +8,36 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<!-- preloader -->
+<div class="preloader js-preloader">
+  <img src="img/logo.png" alt="preloader">
+</div>
 
-<section class="home">
+<!-- preloader end -->
+<header class="header">
+  <div class="container">
+    <div class="header-main">
+      <div class="logo">
+        <a href="#"><img src="img/logo.png" alt="logo">Petcare</a>
+      </div>
+      <button type="button" class="nav-toggler js-nav-toggler">
+        <span></span>
+      </button>
+      <nav class="nav js-nav">
+        <ul>
+          <li style="--item:0"><a href="#home">home</a></li>
+          <li style="--item:0"><a href="#about">about</a></li>
+          <li style="--item:0"><a href="#services">services</a></li>
+          <li style="--item:0"><a href="#pricing">pricing</a></li>
+          <li style="--item:0"><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+  <!-- header end -->
+<section class="home" id="home">
   <div class="container">
     <div class="row">
       <div class="home-text">
@@ -31,7 +59,7 @@
 </section>
 <!-- home section end -->
 
-<section class="about section-padding">
+<section class="about section-padding" id="about">
   <div class="container">
     <div class="section-title">
       <h2 class="title">about us</h2>
@@ -63,7 +91,7 @@
 </section>
 <!-- about section end -->
 
-<section class="services section-padding">
+<section class="services section-padding" id="services">
   <div class="container">
     <div class="section-title">
       <h2 class="title">services</h2>
@@ -152,7 +180,7 @@
 </section>
 <!-- fun fact section end -->
 
-<section class="pricing section-padding">
+<section class="pricing section-padding" id="pricing">
   <div class="container">
     <div class="section-title">
       <h2 class="title">pricing</h2>
@@ -236,6 +264,103 @@
     </div>
   </div>
 </section>
+<!-- pricing section end -->
+<section class="contact section-padding" id="contact"> 
+  <div class="container">
+    <div class="row">
+      <div class="contact-details">
+        <div class="section-title">
+          <p class="subtitle">contact us</p>
+        </div>
+        <div class="text1">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, harum? Odio atque veritatis laborum veniam.</p>
+        </div>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <i class="fa fa-map-marker-alt"></i>
+            <p>34 Glass Street, Dishint City</p>
+          </div>
+          <div class="contact-info-item">
+            <i class="fa fa-envelope"></i>
+            <p>info@gmail.com</p>
+          </div>
+          <div class="contact-info-item">
+            <i class="fa fa-phone"></i>
+            <p>120 460 983</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" title="instagram"><i class="fab fa-instagram"></i></a>
+
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="icon-box">
+          <img src="img/icon/3.png" alt="icon">
+        </div>
+        <div class="contact-box">
+          <form action="">
+            <div class="input-box">
+              <input type="text" placeholder="Name" class="input-control">
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Email" class="input-control">
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Subject" class="input-control">
+            </div>
+            <div class="input-box">
+              <textarea placeholder="Message" class="input-control"></textarea>
+              <button type="submit" class="button">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="footer-item">
+          <h3>about us</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, pariatur!</p>
+        </div>
+        <div class="footer-item">
+          <h3>follow us</h3>
+          <ul>
+            <li><a href="">facebook</a></li>
+            <li><a href="">twitter</a></li>
+            <li><a href="">linkedin</a></li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h3>information</h3>
+          <ul>
+            <li><a href="">privacy policy</a></li>
+            <li><a href="">terms & conditions</a></li>
+            <li><a href="">refund policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>created by...</p>
+    </div>
+  </div>
+</footer>
+
+<!-- dark theme switcher -->
+<button type="button" class="switcher-btn js-switcher-btn">
+  <i class="fa fa-moon"></i>
+</button>
 <script src="js/script.js"></script>
 </body>
 </html>
