@@ -1,31 +1,460 @@
+/* 01. = fonts */
 
-/* -------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-************** Table of contents **********************
 
-  01. = fonts
-  02. = variables
-  03. = override variables for dark theme
-  04. = base
-  05. = container
-  06. = row
-  07. = section
-  08. = buttons
-  09. = forms
-  10. = fancy border-radius box
-  11. = theme light dark switcher
-  12. = animation keyframes
-  13. = preloader
-  14. = header
-  15. = home section
-  16. = about section
-  17. = services section
-  18. = fun fact section
-  19. = pricing section
-  20. = contact section
-  21. = footer 
-  22. = responsive
-  
-----------------------------------------------------------*/
+/* 02. = variables */
 
+:root{
+  --main: hsl(257,68%,73%);
+  --lightred: hsl(0,67%,71%);
+  --lightyellow: hsl(42,73%,74%);
+  --black90: hsl(0,0%,10%);
+  --black70: hsl(0,0%,30%);
+  --white40: hsla(0,0%,100%,0.4);
+  --white50: hsla(0,0%,100%,0.5);
+  --bodybg: hsl(42,45%,73%);
+  --border1: hsl(42,45%,73%,0.4);
+  --shadow: hsl(42,45%,73%);
+}
+/* 03. = override variables for dark theme */
+/* 04. = base */
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+::before,
+::after{
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background-color: var(--bodybg);
+  color: var(--black70);
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+h1,h2,h3,h4,h5,h6{
+  line-height: 1.2;
+  color: var(--black90);
+}
+h3{
+  font-size: 20px;
+  font-weight: 500;
+}
+a{
+  text-decoration: none;
+  color: var(--main);
+}
+img{
+  max-width: 100%;
+  vertical-align: middle;
+}
+ul{
+  list-style: none;
+}
+::selection{
+  color:white;
+  background-color: var(--main);
+}
+/* 05. = container */
+.container{
+  max-width: 1170px;
+  /* background-color: red; */
+  margin:auto;
+  padding: 0 15px;
+
+}
+
+
+/* 06. = row */
+
+.row{
+  --cols:12;
+  display: grid;
+  grid-template-columns: repeat(var(--cols),minmax(0,1fr));
+  grid-gap:30px;
+}
+/* 07. = section */
+
+.section-padding{
+  padding:60px 0;
+}
+.section-title{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-title .title{
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color:var(--main);
+  margin: 0 0 8px;
+}
+.section-title .subtitle{
+  font-size:40px;
+  font-weight: 600;
+  color:var(--black90);
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+/* 08. = buttons */
+
+.button{
+  display: inline-block;
+  padding:10px 28px;
+  background-color: var(--main);
+  color:white;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 1.5;
+  font-family: inherit;
+  border:none;
+  vertical-align: middle;
+  user-select: none;
+  position:relative;
+  overflow:hidden;
+}
+.button::before,
+.button::after{
+  content: "";
+  position: absolute;
+  background-color: var(--white50);
+}
+.button::before{
+  height:8px;
+  width:8px;
+  left:-8px;
+  top:6px;
+  transition:left 0.2s ease;
+}
+.button::after{
+  height: 10px;
+  width:10px;
+  right:-10px;
+  bottom:6px;
+  transition: right 0.2s ease;
+}
+.button:hover::before{
+  left:14px;
+}
+.button:hover::after{
+  right:14px;
+}
+.button:hover::before,
+.button.button:hover::after{
+  animation: spin 2s linear infinite;
+}
+/* 09. = forms */
+/* 10. = fancy border-radius box */
+
+.fancy-br-box{
+  height:400px;
+  width:400px;
+  margin:auto;
+  position: relative;
+}
+.fancy-br-box::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  top:0;
+  height: 100%;
+  width:100%;
+  border:2px solid transparent;
+  border-radius: 50% 40% / 40% 50%;
+  transform: rotate(150deg);
+  z-index: -1;
+}
+.fancy-br-box > img{
+  border-radius: 30% 70% 50% 50% / 50%;
+}
+/* 11. = theme light dark switcher */
+/* 12. = animation keyframes */
+
+@keyframes moveX{
+  0%,100%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(20px);
+  }
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+/* 13. = preloader */
+/* 14. = header */
+/* 15. = home section */
+
+.home{
+  padding: 180px 0 180px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.home::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  height:200px;
+  width:200px;
+  transform: translate(-50%, -50%);
+  background-color: var(--main);
+  border-radius: 50%;
+  z-index: -1;
+}
+.home-text{
+  /* background-color: blue; */
+}
+.home-img{
+  /* background-color: white; */
+}
+.home-img,
+.home-text{
+  grid-column: span 6;
+  align-self:center;
+}
+.home-text h1{
+  font-size: 50px;
+  text-transform: capitalize;
+  margin:0 0 25px;
+}
+.home-text p{
+  margin:0 0 30px;
+}
+.home-img .fancy-br-box::before{
+  border-color:var(--lightred);
+}
+.home-img .icon-box{
+  position: absolute;
+  left:-60px;
+  bottom: -30px;
+  animation: moveX 4s linear infinite;
+}
+.home-img .icon-box img{
+  width: 100px;
+}
+/* 16. = about section */
+.about{
+  overflow: hidden;
+}
+
+.about-img,
+.about-text{
+  grid-column: span 6;
+}
+.about-img .fancy-br-box::before{
+  border-color: var(--lightyellow);
+}
+.about-img .icon-box{
+  position: absolute;
+  left:-60px;
+  bottom:-30px;
+  animation: moveX 4s linear infinite;
+}
+.about-img .icon-box img{
+  width:100px;
+}
+.about-text h3{
+  margin: 15px 0;
+}
+
+.about-text ul li{
+  margin-bottom: 6px;
+  position:relative;
+  padding-left:30px;
+}
+.about-text ul i{
+  color:var(--main);
+  position:absolute;
+  left:0;
+  top:5px;
+}
+/* 17. = services section */
+
+.services-item{
+  grid-column: span 6;
+  background-color: var(--white40);
+  padding:30px;
+  border-radius:10px;
+  display:flex;
+  align-items: flex-start;
+  box-shadow:0 0 10px var(--shadow);
+}
+.services-item .img-box{
+  width:120px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border:1px solid var(--border1);
+  padding:8px;
+}
+.services-item .text{
+  padding-left: 30px;
+}
+.services-item .img-box img{
+  border-radius: 20px;
+}
+.services-item h3{
+  text-transform: capitalize;
+  margin:0 0 15px;
+}
+
+/* 18. = fun fact section */
+.funfact{
+  padding:40px 0;
+}
+.funfactitem{
+  grid-column: span 3;
+  margin: 40px 0;
+  text-align: center;
+}
+.funfactitem .box{
+  height:160px;
+  width:160px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  margin:auto;
+}
+.funfactitem .box::before,
+.funfactitem .box::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  border-radius: 20%;
+}
+.funfactitem .box::before{
+  transform: rotate(22deg);
+  opacity: 0.3;
+  z-index: -2;
+}
+.funfactitem .box::after{
+  transform: rotate(45deg);
+  opacity: 0.5;
+  z-index: -1;
+}
+.funfactitem:nth-child(1) .box::before,
+.funfactitem:nth-child(1) .box::after{
+  background-color: var(--lightred);
+}
+.funfactitem:nth-child(4) .box::before,
+.funfactitem:nth-child(4) .box::after,
+.funfactitem:nth-child(2) .box::before,
+.funfactitem:nth-child(2) .box::after{
+  background-color: var(--main);
+}
+.funfactitem:nth-child(3) .box::before,
+.funfactitem:nth-child(3) .box::after{
+  background-color: var(--lightyellow);
+}
+.funfactitem h2{
+  font-size: 35px;
+}
+.funfactitem p{
+  text-transform: capitalize;
+}
+/* 19. = pricing section/ */
+.pricing-item{
+  grid-column: span 4;
+  background-color: var(--white40);
+  padding:30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--shadow);
+}
+.pricing-header h3{
+  font-size:24px;
+  text-transform: capitalize;
+  position:relative;
+  overflow: hidden;
+}
+.pricing-header h3::before{
+  content:attr(data-text);
+  position: absolute;
+  left:0;
+  bottom:100%;
+  transition:transform 0.5s ease;
+}
+.pricing1 .pricing-body .fa-check-circle,
+.pricing1 .pricing-header .price,
+.pricing1 .pricing-header h3::before{
+  color: var(--lightred);
+}
+.pricing2 .pricing-body .fa-check-circle,
+.pricing2 .pricing-header .price,
+.pricing2 .pricing-header h3::before{
+  color: var(--main);
+}
+.pricing3 .pricing-body .fa-check-circle,
+.pricing3 .pricing-header .price,
+.pricing3 .pricing-header h3::before{
+  color: var(--lightyellow );
+}
+.pricing-header h3 span{
+  display:block;
+  transition:transform 0.5s ease;
+}
+.pricing-item:hover .pricing-header h3 span,
+.pricing-item:hover .pricing-header h3::before{
+  transform: translateY(100%);
+}
+.pricing-header .price{
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-top:10px;
+  border-bottom: 1px solid var(--border1);
+  padding-bottom:5px;
+}
+.pricing-header .price span{
+  font-size: 16px;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.pricing-body{
+  padding:15px 0 20px;
+}
+.pricing-body li{
+  margin-bottom: 6px;
+  position:relative;
+  padding-left:25px;
+}
+
+.pricing-footer{
+  border-top:1px solid var(--border1);
+  padding-top:20px;
+}
+.pricing1 .pricing-footer .button{
+  background-color: var(--lightred);
+}
+.pricing2 .pricing-footer .button{
+  background-color: var(--main);
+}
+.pricing3 .pricing-footer .button{
+  background-color: var(--lightyellow);
+}
+/* 20. = contact section */
+
+/* 21. = footer  */
+/* 22. = responsive */
 
